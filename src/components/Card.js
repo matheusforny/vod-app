@@ -7,7 +7,6 @@ const Card = ({entry}) => {
         <div id={`card-${index}`} className="card">
             <img src={images.url} alt="Imagem nao encontrada"/>
             <div className="details">
-                <span className="index">{index+1}</span>
                 <p className="location">
                     {title}
 					<br />

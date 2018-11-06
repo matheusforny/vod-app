@@ -68,10 +68,6 @@ section {
     right: 0;
     display: block;
     padding: 0 10px; }
-  .card .price {
-    margin: 0;
-    padding: 10px 0;
-    font-weight: bold; }
   .card .details {
     position: relative; }
 
@@ -346,7 +342,7 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 2; }
+    z-index: -1 }
   .col:after {
     left: auto;
     right: 0;

@@ -49,6 +49,8 @@ class App extends Component {
   }
   
   handleKeyPress = (event) => {
+	event.preventDefault();  
+	  
 	if (event.keyCode === 39)
 		this.nextProperty();
 	else if (event.keyCode == 37)
@@ -61,6 +63,7 @@ class App extends Component {
     return (
       <div className="App">
 
+	    <br />
         <button 
           onClick={() => this.prevProperty()}
           disabled={entry.index === 0}
@@ -87,9 +90,12 @@ class App extends Component {
                 </div>
               </div>
             </div>
-
+			<button 
+				onClick={() => this.chamarVideo()} 
+			>Next</button>
         </div>
       </div>
+	  
     );
   }
 }
