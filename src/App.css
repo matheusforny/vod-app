@@ -47,6 +47,7 @@ section {
   cursor: pointer;
   background-color: #f3f3f3;
   padding: 10px;
+  height: 260px;
   max-width: 220px;
   text-align: left;
   margin: 0 auto; }
@@ -73,28 +74,6 @@ section {
     font-weight: bold; }
   .card .details {
     position: relative; }
-  .card .features {
-    list-style: none;
-    padding: 0;
-    margin: 0; }
-    .card .features li {
-      padding-left: 24px;
-      margin-right: 10px;
-      display: inline-block; }
-      .card .features li span {
-        display: none; }
-      .card .features li.icon-bed {
-        background: url(./assets/bed-left-side.svg) left center;
-        background-size: auto 100%;
-        background-repeat: no-repeat; }
-      .card .features li.icon-bath {
-        background: url(./assets/bathtub.svg);
-        background-size: auto 100%;
-        background-repeat: no-repeat; }
-      .card .features li.icon-car {
-        background: url(./assets/car-compact.svg);
-        background-size: auto 100%;
-        background-repeat: no-repeat; }
 
 /* #endregion */
 /* #region cards slider */
@@ -356,7 +335,7 @@ section {
     opacity: 1; }
 
 .col {
-  height: 264px;
+  height: 300px;
   position: relative; }
   .col:before, .col:after {
     content: '';
@@ -375,13 +354,14 @@ section {
 
 .cards-slider {
   position: relative;
+  height: 280px;
   max-width: 226px;
   margin: 0 auto; }
   .cards-slider:after {
     content: '';
     display: block;
     width: 100%;
-    height: 264px;
+    height: 280px;
     outline: 5px solid #61DAFB;
     position: absolute;
     top: 0;

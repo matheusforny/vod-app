@@ -12,6 +12,8 @@ class App extends Component {
   constructor(props){
     super(props);
 	
+	window.addEventListener('keydown', e => this.handleKeyPress(e));
+	
     this.state = {
       entries: jsonData.entries,
       entry: jsonData.entries[0]
@@ -21,21 +23,36 @@ class App extends Component {
   nextProperty = () => {
     const newIndex = this.state.entry.index + 1;
 	
-	console.log("Iremos para " + newIndex);
+	if (newIndex < this.state.entries.length) {
+		console.log("Iremos para " + newIndex);
 	
-    this.setState({
-      entry: jsonData.entries[newIndex]
-    })
+		this.setState({
+		entry: jsonData.entries[newIndex]
+		})
+	}
   }
 
   prevProperty = () => {
     const newIndex = this.state.entry.index - 1;
 	
-	console.log("Voltamos para " + newIndex);
+	if (newIndex >= 0) {
+		console.log("Voltamos para " + newIndex);
 	
-    this.setState({
-      entry: jsonData.entries[newIndex]
-    })
+		this.setState({
+		entry: jsonData.entries[newIndex]
+		})
+	}
+  }
+  
+  chamarVideo = () => {
+	console.log("Oi");
+  }
+  
+  handleKeyPress = (event) => {
+	if (event.keyCode === 39)
+		this.nextProperty();
+	else if (event.keyCode == 37)
+		this.prevProperty();
   }
 
   render() {
@@ -45,7 +62,7 @@ class App extends Component {
       <div className="App">
 
         <button 
-          onClick={() => this.prevProperty()} 
+          onClick={() => this.prevProperty()}
           disabled={entry.index === 0}
         >Prev</button>
 		<button 
@@ -62,10 +79,10 @@ class App extends Component {
             <div className="col">
               <div className={`cards-slider active-slide-${entry.index}`}>
                 <div className="cards-slider-wrapper" style={{
-                  'transform': `translateX(-${entry.index*(100/entries.length)}%)`
+				  'transform': `translateX(-${entry.index*(100/entries.length)}%)`
                 }}>
                   {
-                    entries.map(entry => <Card key={entry._id} entry={entry} />)
+                    entries.map(entry => <Card key={entry._id} entry={entry}/>)
                   }
                 </div>
               </div>

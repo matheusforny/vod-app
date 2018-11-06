@@ -1630,7 +1630,7 @@ const jsonData = {
 },
 {
 "title": "Alexander and the Terrible, Horrible, No Good, Very Bad Day",
-"description": "Alexander's day begins with gum stuck in his hair, followed by more calamities. Though he finds little sympathy from his family and begins to wonder if bad things only happen to him, his mom, dad, brother, and sister all find themselves living through their own terrible, horrible, no good, very bad day.",
+"description": "Alexander's day begins with gum stuck in his hair, followed by more calamities. Though he finds little sympathy from his family and begins to wonder if bad things only happen to him, his mom, dad...",
 "type": "movie",
 "publishedDate": 1414108800000,
 "availableDate": 1414108800000,
