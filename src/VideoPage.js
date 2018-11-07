@@ -8,9 +8,11 @@ class SearchPage extends Component {
 		return (
 			<Player
 				autoPlay
-				onEnded={this.props.onEnded)}
+				onEnded={this.props.onEnded}
 				src={this.props.src}
 			/>
 		);
 	}
 }
+
+export default SearchPage;

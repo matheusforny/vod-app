@@ -54,6 +54,8 @@ class SearchPage extends Component {
 		this.nextProperty();
 	else if (event.keyCode === 37)
 		this.prevProperty();
+	else if (event.keyCode === 13)
+		this.chamarVideo();
   }
 
   render() {
