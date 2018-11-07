@@ -20,13 +20,19 @@ class App extends Component {
 		urlVideo: url
 	});
   }
+  
+  aoTerminarVideo() {
+	  this.setState({
+		  videoMode: false
+	  });
+  }
 
   render() {	
     return (
       <div className="App">
 		{this.state.videoMode ? <Player
 			autoPlay
-			playsInline
+			onEnded={this.aoTerminarVideo.bind(this)}
 			src={this.state.urlVideo}
 		/>: <SearchPage atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}/>}
 	  </div>
