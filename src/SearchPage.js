@@ -9,9 +9,7 @@ class SearchPage extends Component {
 
   constructor(props){
     super(props);
-	
-	window.addEventListener('keydown', e => this.handleKeyPress(e));
-	
+		
     this.state = {
       entries: jsonData.entries,
       entry: jsonData.entries[0],
@@ -46,17 +44,6 @@ class SearchPage extends Component {
   chamarVideo = () => {
 	this.props.atualizarUrlVideo(this.state.entry.contents[0].url);
   }
-  
-  handleKeyPress = (event) => {
-	event.preventDefault();  
-	  
-	if (event.keyCode === 39)
-		this.nextProperty();
-	else if (event.keyCode === 37)
-		this.prevProperty();
-	else if (event.keyCode === 13)
-		this.chamarVideo();
-  }
 
   render() {
     const {entries, entry} = this.state;
@@ -83,14 +70,14 @@ class SearchPage extends Component {
                 </div>
               </div>
             </div>
-			<button class="botaoControleCarousel"
+			<button className="botaoControleCarousel"
 				onClick={() => this.prevProperty()}
 				disabled={entry.index === 0}
 			>Anterior</button>
-			<button class="botaoAssistirVideo"
+			<button className="botaoAssistirVideo"
 				onClick={this.chamarVideo} 
 			>Assistir Vídeo</button>
-			<button  class="botaoControleCarousel"
+			<button  className="botaoControleCarousel"
 				onClick={() => this.nextProperty()} 
 				disabled={entry.index === jsonData.entries.length - 1}
 			>Seguinte</button>

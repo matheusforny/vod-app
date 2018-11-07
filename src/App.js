@@ -7,6 +7,8 @@ class App extends Component {
 	
   constructor(props){
     super(props);
+	
+	window.addEventListener('keydown', e => this.handleKeyPress(e));
 		
     this.state = {
       urlVideo: "",
@@ -26,6 +28,17 @@ class App extends Component {
 		  videoMode: false
 	  });
   }
+  
+  handleKeyPress = (event) => {
+	event.preventDefault();  
+	  
+	if (event.keyCode === 39)
+		this.refs.searchpage.nextProperty();
+	else if (event.keyCode === 37)
+		this.refs.searchpage.prevProperty();
+	else if (event.keyCode === 13)
+		this.chamarVideo();
+  }
 
   render() {	
     return (
@@ -34,7 +47,7 @@ class App extends Component {
 			onEnded={this.aoTerminarVideo.bind(this)}
 			src={this.state.urlVideo}
 		/> : 
-		<SearchPage atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}/>}
+		<SearchPage ref='searchpage' atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}/>}
 	  </div>
 	)
   }    
