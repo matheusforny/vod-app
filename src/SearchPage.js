@@ -64,14 +64,7 @@ class SearchPage extends Component {
     return (
       <div className="SearchPage">
 	    <br />
-        <button 
-          onClick={() => this.prevProperty()}
-          disabled={entry.index === 0}
-        >Prev</button>
-		<button 
-          onClick={() => this.nextProperty()} 
-          disabled={entry.index === jsonData.entries.length - 1}
-        >Next</button>
+        <br />
 
         <div className="page">
             <section>
@@ -90,9 +83,17 @@ class SearchPage extends Component {
                 </div>
               </div>
             </div>
-			<button 
+			<button class="botaoControleCarousel"
+				onClick={() => this.prevProperty()}
+				disabled={entry.index === 0}
+			>Anterior</button>
+			<button class="botaoAssistirVideo"
 				onClick={this.chamarVideo} 
 			>Assistir Vídeo</button>
+			<button  class="botaoControleCarousel"
+				onClick={() => this.nextProperty()} 
+				disabled={entry.index === jsonData.entries.length - 1}
+			>Seguinte</button>
 		</div>
       </div>
 	  
