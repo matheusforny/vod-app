@@ -12,18 +12,25 @@ class App extends Component {
 		
     this.state = {
       urlVideo: "",
+	  listaVideosVistos: [],
 	  videoMode: false
     }
   }
   
-  atualizarUrlVideo(url) {
+  atualizarUrlVideo(url, idVideo) {
+	var videoNovoAssistido = false;
+	
+	if (this.state.listaVideosVistos.indexOf(idVideo))
+		videoNovoAssistido = true;
+	
 	this.setState({
 		videoMode: true,
+		listaVideosVistos: videoNovoAssistido ? this.state.listaVideosVistos.concat([idVideo]) : this.state.listaVideosVistos,
 		urlVideo: url
 	});
   }
   
-  aoTerminarVideo() {
+  aoTerminarVideo() {	  
 	  this.setState({
 		  videoMode: false
 	  });
@@ -51,6 +58,7 @@ class App extends Component {
 				src={this.state.urlVideo}
 			/> : 
 			<SearchPage	ref='searchpage'
+				quantidadeVideosVistos={this.state.listaVideosVistos.length}
 				atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}
 			/>
 		}

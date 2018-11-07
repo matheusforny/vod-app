@@ -9,20 +9,20 @@ class SearchPage extends Component {
 
   constructor(props){
     super(props);
-		
+	
+	console.log(props.quantidadeVideosVistos);
+				
     this.state = {
-      entries: jsonData.entries,
-      entry: jsonData.entries[0],
-	  videoMode: false
-    }
+		entries: jsonData.entries,
+		entry: jsonData.entries[0],
+		mostrarListaVideosVistos: false
+	}
   }
 
   nextProperty = () => {
     const newIndex = this.state.entry.index + 1;
 	
-	if (newIndex < this.state.entries.length) {
-		console.log("Iremos para " + newIndex);
-	
+	if (newIndex < this.state.entries.length) {	
 		this.setState({
 			entry: jsonData.entries[newIndex]
 		})
@@ -33,8 +33,6 @@ class SearchPage extends Component {
     const newIndex = this.state.entry.index - 1;
 	
 	if (newIndex >= 0) {
-		console.log("Voltamos para " + newIndex);
-	
 		this.setState({
 			entry: jsonData.entries[newIndex]
 		})
@@ -42,7 +40,7 @@ class SearchPage extends Component {
   }
   
   chamarVideo = () => {
-	this.props.atualizarUrlVideo(this.state.entry.contents[0].url);
+	this.props.atualizarUrlVideo(this.state.entry.contents[0].url, this.state.entry._id);
   }
 
   render() {
@@ -70,17 +68,25 @@ class SearchPage extends Component {
                 </div>
               </div>
             </div>
-			<button className="botaoControleCarousel"
-				onClick={() => this.prevProperty()}
-				disabled={entry.index === 0}
-			>Anterior</button>
-			<button className="botaoAssistirVideo"
-				onClick={this.chamarVideo} 
-			>Assistir Vídeo</button>
-			<button  className="botaoControleCarousel"
-				onClick={() => this.nextProperty()} 
-				disabled={entry.index === jsonData.entries.length - 1}
-			>Seguinte</button>
+			<div>
+				<button className="botaoControleCarousel"
+					onClick={() => this.prevProperty()}
+					disabled={entry.index === 0}
+				>Anterior</button>
+				<button className="botaoAssistirVideo"
+					onClick={this.chamarVideo} 
+				>Assistir Vídeo</button>
+				<button  className="botaoControleCarousel"
+					onClick={() => this.nextProperty()} 
+					disabled={entry.index === jsonData.entries.length - 1}
+				>Seguinte</button>
+			</div>
+			<div>
+				<button  className="botaoControleCarousel"
+					onClick={() => this.nextProperty()} 
+					disabled={this.props.quantidadeVideosVistos === 0}
+				>Assistir Videos Já Vistos</button>
+			</div>
 		</div>
       </div>
 	  
