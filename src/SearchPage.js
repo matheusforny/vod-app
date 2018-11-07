@@ -24,7 +24,7 @@ class SearchPage extends Component {
 		console.log("Iremos para " + newIndex);
 	
 		this.setState({
-		entry: jsonData.entries[newIndex]
+			entry: jsonData.entries[newIndex]
 		})
 	}
   }
@@ -36,7 +36,7 @@ class SearchPage extends Component {
 		console.log("Voltamos para " + newIndex);
 	
 		this.setState({
-		entry: jsonData.entries[newIndex]
+			entry: jsonData.entries[newIndex]
 		})
 	}
   }

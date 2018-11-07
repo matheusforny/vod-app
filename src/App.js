@@ -45,11 +45,15 @@ class App extends Component {
   render() {	
     return (
       <div className="App">
-		{this.state.videoMode ? <VideoPage ref='videopage'
-			onEnded={this.aoTerminarVideo.bind(this)}
-			src={this.state.urlVideo}
-		/> : 
-		<SearchPage ref='searchpage' atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}/>}
+		{this.state.videoMode ?
+			<VideoPage ref='videopage'
+				onEnded={this.aoTerminarVideo.bind(this)}
+				src={this.state.urlVideo}
+			/> : 
+			<SearchPage	ref='searchpage'
+				atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}
+			/>
+		}
 	  </div>
 	)
   }    

@@ -10,12 +10,22 @@ class SearchPage extends Component {
 
 	render() {
 		return (
-			<Player
-				ref="player"
-				autoPlay
-				onEnded={this.props.onEnded}
-				src={this.props.src}
-			/>
+			<div>
+				<Player
+					ref="player"
+					autoPlay
+					onEnded={this.props.onEnded}
+					src={this.props.src}
+				/>
+				<br />
+				<br />
+				<button
+					className="botaoAssistirVideo"
+					onClick={this.props.onEnded}
+				>
+				Voltar à tela anterior
+				</button>
+			</div>
 		);
 	}
 }
