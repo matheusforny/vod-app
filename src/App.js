@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Player } from 'video-react';
 import SearchPage from './SearchPage';
+import VideoPage from './VideoPage';
 
 // class component
 class App extends Component {
@@ -30,11 +30,11 @@ class App extends Component {
   render() {	
     return (
       <div className="App">
-		{this.state.videoMode ? <Player
-			autoPlay
+		{this.state.videoMode ? <VideoPage
 			onEnded={this.aoTerminarVideo.bind(this)}
 			src={this.state.urlVideo}
-		/>: <SearchPage atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}/>}
+		/> : 
+		<SearchPage atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}/>}
 	  </div>
 	)
   }    
