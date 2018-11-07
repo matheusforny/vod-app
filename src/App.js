@@ -38,12 +38,14 @@ class App extends Component {
 		this.refs.searchpage.prevProperty();
 	else if (event.keyCode === 13)
 		this.chamarVideo();
+	else if (event.keyCode === 27)
+		this.aoTerminarVideo();
   }
 
   render() {	
     return (
       <div className="App">
-		{this.state.videoMode ? <VideoPage
+		{this.state.videoMode ? <VideoPage ref='videopage'
 			onEnded={this.aoTerminarVideo.bind(this)}
 			src={this.state.urlVideo}
 		/> : 
