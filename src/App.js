@@ -12,20 +12,26 @@ class App extends Component {
 		
     this.state = {
       urlVideo: "",
+	  indexesVideosVistos: [],
 	  listaVideosVistos: [],
-	  videoMode: false
+	  videoMode: false,
+	  mostrarListaVideosVistos: false
     }
   }
   
-  atualizarUrlVideo(url, idVideo) {
-	var videoNovoAssistido = false;
-	
-	if (this.state.listaVideosVistos.indexOf(idVideo))
-		videoNovoAssistido = true;
-	
+  atualizarUrlVideo(url, idVideo, video) {
+	var indexesVideosVistos = this.state.indexesVideosVistos;
+	var listaVideosVistos = this.state.listaVideosVistos;
+		
+	if (this.state.indexesVideosVistos.indexOf(idVideo) < 0) {
+		indexesVideosVistos.push(idVideo);
+		listaVideosVistos.push(video);
+	}
+		
 	this.setState({
 		videoMode: true,
-		listaVideosVistos: videoNovoAssistido ? this.state.listaVideosVistos.concat([idVideo]) : this.state.listaVideosVistos,
+		indexesVideosVistos: indexesVideosVistos,
+		listaVideosVistos: listaVideosVistos,
 		urlVideo: url
 	});
   }
@@ -48,6 +54,12 @@ class App extends Component {
 	else if (event.keyCode === 27)
 		this.aoTerminarVideo();
   }
+  
+  atualizarModoListaVideo = (mostrarListaVideosVistos) => {
+	  this.setState({
+		  mostrarListaVideosVistos: mostrarListaVideosVistos
+	  });
+  }
 
   render() {	
     return (
@@ -58,7 +70,11 @@ class App extends Component {
 				src={this.state.urlVideo}
 			/> : 
 			<SearchPage	ref='searchpage'
-				quantidadeVideosVistos={this.state.listaVideosVistos.length}
+				indexesVideosVistos={this.state.indexesVideosVistos}
+				listaVideosVistos={this.state.listaVideosVistos}
+				mostrarListaVideosVistos={this.state.mostrarListaVideosVistos}
+				atualizarModoListaVideo={this.atualizarModoListaVideo.bind(this)}
+				quantidadeVideosVistos={this.state.indexesVideosVistos.length}
 				atualizarUrlVideo={this.atualizarUrlVideo.bind(this)}
 			/>
 		}
