@@ -44,7 +44,7 @@ class SearchPage extends Component {
   }
   
   chamarVideo = () => {
-	console.log("Oi");
+	this.props.atualizarUrlVideo(this.state.entry.contents[0].url);
   }
   
   handleKeyPress = (event) => {
@@ -52,7 +52,7 @@ class SearchPage extends Component {
 	  
 	if (event.keyCode === 39)
 		this.nextProperty();
-	else if (event.keyCode == 37)
+	else if (event.keyCode === 37)
 		this.prevProperty();
   }
 
@@ -89,7 +89,7 @@ class SearchPage extends Component {
               </div>
             </div>
 			<button 
-				onClick={() => this.chamarVideo()} 
+				onClick={this.chamarVideo} 
 			>Assistir Vídeo</button>
 		</div>
       </div>
